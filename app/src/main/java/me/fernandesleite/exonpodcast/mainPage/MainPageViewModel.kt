@@ -1,4 +1,4 @@
-package me.fernandesleite.exonpodcast.mainpage
+package me.fernandesleite.exonpodcast.mainPage
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

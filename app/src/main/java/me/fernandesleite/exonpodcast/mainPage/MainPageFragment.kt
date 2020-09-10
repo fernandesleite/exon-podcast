@@ -1,6 +1,5 @@
-package me.fernandesleite.exonpodcast.mainpage
+package me.fernandesleite.exonpodcast.mainPage
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
