@@ -7,4 +7,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="ThemeNavDrawer" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="itemBackground">@drawable/nav_item_drawable</item>
+    </style>
+
 </resources>
