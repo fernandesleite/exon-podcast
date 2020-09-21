@@ -1,12 +1,17 @@
 package me.fernandesleite.exonpodcast.discoverPage
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import me.fernandesleite.exonpodcast.R
+import me.fernandesleite.exonpodcast.di.DaggerApiComponent
+import me.fernandesleite.exonpodcast.repository.PodcastRepository
+import javax.inject.Inject
 
 class DiscoverPageFragment : Fragment() {
 
@@ -15,6 +20,12 @@ class DiscoverPageFragment : Fragment() {
     }
 
     private lateinit var viewModel: DiscoverPageViewModel
+    private lateinit var viewModelFactory: DiscoverPageViewModelFactory
+
+    @Inject
+    lateinit var podcastRepository: PodcastRepository
+
+    var apiComponent = DaggerApiComponent.create().inject(this)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,8 +36,16 @@ class DiscoverPageFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(DiscoverPageViewModel::class.java)
-        // TODO: Use the ViewModel
+
+        viewModelFactory =
+            DiscoverPageViewModelFactory(
+                podcastRepository
+            )
+        viewModel = ViewModelProvider(this, viewModelFactory).get(DiscoverPageViewModel::class.java)
+        viewModel.searchPodcast()
+        viewModel.page.observe(viewLifecycleOwner, Observer {
+            Log.i("test", it.toString())
+        })
     }
 
 }
