@@ -1,11 +1,10 @@
-package me.fernandesleite.exonpodcast.mainPage
+package me.fernandesleite.exonpodcast.ui.mainPage
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
 import me.fernandesleite.exonpodcast.R
 
 class MainPageFragment : Fragment() {
@@ -25,7 +24,7 @@ class MainPageFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainPageViewModel::class.java)
+
     }
 
 }

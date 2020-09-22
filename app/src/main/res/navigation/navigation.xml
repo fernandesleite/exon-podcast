@@ -7,22 +7,22 @@
 
     <fragment
         android:id="@+id/mainPageFragment"
-        android:name="me.fernandesleite.exonpodcast.mainPage.MainPageFragment"
+        android:name="me.fernandesleite.exonpodcast.ui.mainPage.MainPageFragment"
         android:label="@string/podcasts"
         tools:layout="@layout/main_page_fragment" />
     <fragment
         android:id="@+id/discoverPageFragment"
-        android:name="me.fernandesleite.exonpodcast.discoverPage.DiscoverPageFragment"
+        android:name="me.fernandesleite.exonpodcast.ui.discoverPage.DiscoverPageFragment"
         android:label="@string/discover"
         tools:layout="@layout/discover_page_fragment" />
     <fragment
         android:id="@+id/downloadedPageFragment"
-        android:name="me.fernandesleite.exonpodcast.downloadedPage.DownloadedPageFragment"
+        android:name="me.fernandesleite.exonpodcast.ui.downloadedPage.DownloadedPageFragment"
         android:label="@string/downloaded"
         tools:layout="@layout/downloaded_page_fragment" />
     <fragment
         android:id="@+id/settingsPageFragment"
-        android:name="me.fernandesleite.exonpodcast.settingsPage.SettingsPageFragment"
+        android:name="me.fernandesleite.exonpodcast.ui.settingsPage.SettingsPageFragment"
         android:label="@string/settings"
         tools:layout="@layout/settings_page_fragment" />
 </navigation>

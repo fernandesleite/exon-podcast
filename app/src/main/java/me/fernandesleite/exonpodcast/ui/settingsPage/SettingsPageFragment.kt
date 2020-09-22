@@ -1,4 +1,4 @@
-package me.fernandesleite.exonpodcast.downloadedPage
+package me.fernandesleite.exonpodcast.ui.settingsPage
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -8,24 +8,24 @@ import android.view.View
 import android.view.ViewGroup
 import me.fernandesleite.exonpodcast.R
 
-class DownloadedPageFragment : Fragment() {
+class SettingsPageFragment : Fragment() {
 
     companion object {
-        fun newInstance() = DownloadedPageFragment()
+        fun newInstance() = SettingsPageFragment()
     }
 
-    private lateinit var viewModel: DownloadedPageViewModel
+    private lateinit var viewModel: SettingsPageViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.downloaded_page_fragment, container, false)
+        return inflater.inflate(R.layout.settings_page_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(DownloadedPageViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(SettingsPageViewModel::class.java)
         // TODO: Use the ViewModel
     }
 

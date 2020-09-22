@@ -1,4 +1,4 @@
-package me.fernandesleite.exonpodcast.downloadedPage
+package me.fernandesleite.exonpodcast.ui.downloadedPage
 
 import androidx.lifecycle.ViewModel
 

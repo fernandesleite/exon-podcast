@@ -1,4 +1,4 @@
-package me.fernandesleite.exonpodcast.settingsPage
+package me.fernandesleite.exonpodcast.ui.settingsPage
 
 import androidx.lifecycle.ViewModel
 
