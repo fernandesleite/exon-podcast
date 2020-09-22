@@ -1,7 +1,7 @@
 package me.fernandesleite.exonpodcast.di
 
 import dagger.Component
-import me.fernandesleite.exonpodcast.discoverPage.DiscoverPageFragment
+import me.fernandesleite.exonpodcast.ui.discoverPage.DiscoverPageFragment
 import javax.inject.Singleton
 
 @Singleton

@@ -1,4 +1,4 @@
-package me.fernandesleite.exonpodcast.discoverPage
+package me.fernandesleite.exonpodcast.ui.discoverPage
 
 import android.os.Bundle
 import android.util.Log
@@ -19,8 +19,12 @@ class DiscoverPageFragment : Fragment() {
         fun newInstance() = DiscoverPageFragment()
     }
 
+    private val TAG = "DiscoverPageFragment"
+
     private lateinit var viewModel: DiscoverPageViewModel
-    private lateinit var viewModelFactory: DiscoverPageViewModelFactory
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
 
     @Inject
     lateinit var podcastRepository: PodcastRepository
@@ -36,15 +40,14 @@ class DiscoverPageFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-        viewModelFactory =
-            DiscoverPageViewModelFactory(
-                podcastRepository
-            )
         viewModel = ViewModelProvider(this, viewModelFactory).get(DiscoverPageViewModel::class.java)
         viewModel.searchPodcast()
-        viewModel.page.observe(viewLifecycleOwner, Observer {
-            Log.i("test", it.toString())
+        viewModel.showTopPodcasts()
+        viewModel.ITunesSearch.observe(viewLifecycleOwner, Observer {
+            Log.i(TAG, it[0].toString())
+        })
+        viewModel.topPodcasts.observe(viewLifecycleOwner, Observer {
+            Log.i(TAG, it[0].toString())
         })
     }
 
