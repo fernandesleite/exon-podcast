@@ -2,6 +2,7 @@ package me.fernandesleite.exonpodcast
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -9,8 +10,11 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.google.android.material.navigation.NavigationView
+import me.fernandesleite.exonpodcast.di.DaggerApiComponent
+import me.fernandesleite.exonpodcast.persistence.AppDatabase
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -27,5 +31,7 @@ class MainActivity : AppCompatActivity() {
         setupWithNavController(toolbar, navController, appBarConfiguration)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
+//        var apiComponent = DaggerApiComponent.builder().build()
+//        Log.i("test", "test")
     }
 }

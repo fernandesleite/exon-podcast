@@ -8,7 +8,7 @@ data class ITunesRSS(val feed: Feed){
             val releaseDate: String,
             val name: String,
             val kind: String,
-            val copyright: String,
+            val copyright: String?,
             val contentAdvisoryRating: String?,
             val artistUrl: String?,
             val artworkUrl100: String?,
