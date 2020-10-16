@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import me.fernandesleite.exonpodcast.databinding.DiscoverPageFragmentBinding
 import me.fernandesleite.exonpodcast.di.DaggerApiComponent
 import me.fernandesleite.exonpodcast.repository.PodcastRepository
@@ -35,15 +36,20 @@ class DiscoverPageFragment : Fragment() {
     @Inject
     lateinit var podcastRepository: PodcastRepository
 
-    var apiComponent = DaggerApiComponent.create().inject(this)
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val activity = requireNotNull(this.activity)
+
+        DaggerApiComponent.builder().application(activity.application).build().inject(this)
+
         binding = DiscoverPageFragmentBinding.inflate(inflater)
         binding.discoverList.layoutManager =
             GridLayoutManager(this.context, 2, GridLayoutManager.HORIZONTAL, false)
+        binding.genreList.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
         viewModel = ViewModelProvider(this, viewModelFactory).get(DiscoverPageViewModel::class.java)
         return binding.root
     }
@@ -58,7 +64,7 @@ class DiscoverPageFragment : Fragment() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
         binding.discoverList.adapter = DiscoverListAdapter()
-
+        binding.genreList.adapter = GenreListAdapter()
         binding.searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(s: String): Boolean {
                 Log.i(TAG, s)
