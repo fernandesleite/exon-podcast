@@ -10,6 +10,9 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.google.android.material.navigation.NavigationView
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import me.fernandesleite.exonpodcast.di.DaggerApiComponent
 import me.fernandesleite.exonpodcast.persistence.AppDatabase
 
@@ -31,7 +34,11 @@ class MainActivity : AppCompatActivity() {
         setupWithNavController(toolbar, navController, appBarConfiguration)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-//        var apiComponent = DaggerApiComponent.builder().build()
-//        Log.i("test", "test")
+
+        // init database first-run
+        CoroutineScope(Dispatchers.IO).launch {
+           AppDatabase.getInstance(this@MainActivity.applicationContext).genreDao.getAllGenres()
+        }
+
     }
 }

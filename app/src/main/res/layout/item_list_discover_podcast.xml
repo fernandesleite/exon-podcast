@@ -7,31 +7,50 @@
             name="podcast"
             type="me.fernandesleite.exonpodcast.network.models.ITunesRSS.Feed.ResultsRSS" />
     </data>
-    <LinearLayout
-        android:layout_width="240dp"
-        android:padding="@dimen/margin_big"
+    <FrameLayout
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:gravity="center"
-        android:orientation="vertical">
-        
+        android:layout_marginBottom="8dp">
+
         <ImageView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center_horizontal"
-            app:artwork="@{podcast.artworkUrl100}"/>
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            app:artwork="@{podcast.artworkUrl100}"
+            tools:src="@drawable/ic_headset_24px" />
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textSize="16sp"
-            android:ellipsize="end"
-            android:maxLines="3"
-            android:textAlignment="center"
-            android:text="@{podcast.name}"
-            tools:text="Podcast name asssssssffffffffffffffffffssssssss" />
+            android:layout_height="70dp"
+            android:layout_gravity="bottom"
+            android:background="#AA000000"
+            android:gravity="center"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:text="@{podcast.name}"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                tools:text="@tools:sample/lorem[5]" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{podcast.artistName}"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                tools:text="@tools:sample/lorem[10]" />
+        </LinearLayout>
+
+
+    </FrameLayout>
 </layout>
+
 
